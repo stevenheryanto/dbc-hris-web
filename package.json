@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:prod": "tsc -b && vite build --mode production",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:build": "docker build -t dbc-hris-web .",
+    "docker:run": "docker run -p 3000:80 dbc-hris-web",
+    "docker:compose": "docker-compose up -d"
   },
   "dependencies": {
     "react": "19.2.1",

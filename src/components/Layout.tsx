@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { LogOut, Users, Clock, Upload, Home } from 'lucide-react';
+import { LogOut, Users, Clock, Home } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface LayoutProps {
@@ -27,7 +27,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { name: 'Dashboard', href: '/', icon: Home },
     { name: 'Employees', href: '/employees', icon: Users },
     { name: 'Attendance', href: '/attendance', icon: Clock },
-    { name: 'Import', href: '/import', icon: Upload },
   ];
 
   return (

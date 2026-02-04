@@ -8,7 +8,6 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Employees from './pages/Employees';
 import Attendance from './pages/Attendance';
-import Import from './pages/Import';
 
 const AppRoutes: React.FC = () => {
   const { isAuthenticated } = useAuth();
@@ -44,14 +43,6 @@ const AppRoutes: React.FC = () => {
         element={
           <ProtectedRoute>
             <Attendance />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/import"
-        element={
-          <ProtectedRoute>
-            <Import />
           </ProtectedRoute>
         }
       />
