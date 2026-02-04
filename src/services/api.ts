@@ -1,6 +1,6 @@
 import axios from 'axios';
 import type { AuthResponse, LoginRequest, RegisterRequest } from '../types/auth';
-import type { Employee, CreateEmployeeRequest, ImportEmployeeRequest } from '../types/employee';
+import type { Employee, CreateEmployeeRequest, UpdateEmployeeRequest, ImportEmployeeRequest } from '../types/employee';
 import type { AttendanceRecord, AttendanceFilters } from '../types/attendance';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
@@ -53,8 +53,8 @@ export const authAPI = {
 
 // Employee API
 export const employeeAPI = {
-  getAll: async (): Promise<Employee[]> => {
-    const response = await api.get('/employees');
+  getAll: async (params?: { search?: string; status?: string; limit?: number; offset?: number }): Promise<Employee[]> => {
+    const response = await api.get('/employees', { params });
     return response.data;
   },
 
@@ -68,7 +68,7 @@ export const employeeAPI = {
     return response.data;
   },
 
-  update: async (id: string, data: Partial<CreateEmployeeRequest>): Promise<Employee> => {
+  update: async (id: string, data: UpdateEmployeeRequest): Promise<Employee> => {
     const response = await api.put(`/employees/${id}`, data);
     return response.data;
   },
