@@ -104,4 +104,30 @@ export const attendanceAPI = {
   },
 };
 
+// Office API
+export const officeAPI = {
+  getAll: async (): Promise<any[]> => {
+    const response = await api.get('/offices');
+    return response.data;
+  },
+
+  getById: async (id: string): Promise<any> => {
+    const response = await api.get(`/offices/${id}`);
+    return response.data;
+  },
+
+  create: async (data: any): Promise<any> => {
+    const response = await api.post('/offices', data);
+    return response.data;
+  },
+
+  update: async (id: string, data: any): Promise<any> => {
+    const response = await api.put(`/offices/${id}`, data);
+    return response.data;
+  },
+  delete: async (id: string): Promise<void> => {
+    await api.delete(`/offices/${id}`);
+  }
+};
+
 export default api;
